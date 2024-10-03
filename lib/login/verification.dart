@@ -18,7 +18,6 @@ class _VerificationPageState extends State<VerificationPage> {
   // Girilen sayıları yöneten controller
   TextEditingController pinController = TextEditingController();
 
-  // Özel klavye butonuna basıldığında sayıyı ekle
   void _onKeyTap(String value) {
     setState(() {
       enteredCode += value;
@@ -111,8 +110,10 @@ class _VerificationPageState extends State<VerificationPage> {
                       fieldHeight: 50,
                       fieldWidth: 40,
                       activeFillColor: const Color.fromARGB(255, 250, 250, 250),
-                      selectedFillColor: const Color.fromARGB(255, 250, 250, 250),
-                      inactiveFillColor: const Color.fromARGB(255, 250, 250, 250),
+                      selectedFillColor:
+                          const Color.fromARGB(255, 250, 250, 250),
+                      inactiveFillColor:
+                          const Color.fromARGB(255, 250, 250, 250),
                       shape: PinCodeFieldShape.box,
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -143,7 +144,10 @@ class _VerificationPageState extends State<VerificationPage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder:(context)=>NewPasswordPage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NewPasswordPage()));
                       print("Doğrulama kodu: $enteredCode");
                     },
                     style: ElevatedButton.styleFrom(
@@ -165,7 +169,7 @@ class _VerificationPageState extends State<VerificationPage> {
                 ],
               ),
             ),
-            const Spacer(), 
+            const Spacer(),
             Container(
               color: const Color.fromARGB(255, 84, 64, 140), // Arka plan mor
               child: _buildNumberPad(),

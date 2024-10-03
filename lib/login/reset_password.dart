@@ -122,8 +122,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   }
 }
 
-
-
 class PasswordCongratulationPage extends StatelessWidget {
   const PasswordCongratulationPage({super.key});
 
@@ -181,15 +179,17 @@ class PasswordCongratulationPage extends StatelessWidget {
                           style: GoogleFonts.openSans(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
-                              color: (const Color.fromARGB(255, 255, 255, 255)))),
+                              color:
+                                  (const Color.fromARGB(255, 255, 255, 255)))),
                     ),
                   ],
                 ))));
   }
 }
 
-
 class NewPasswordPage extends StatefulWidget {
+  const NewPasswordPage({super.key});
+
   @override
   _NewPasswordPageState createState() => _NewPasswordPageState();
 }
@@ -336,7 +336,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
               if (_errorMessage.isNotEmpty)
                 Text(
                   _errorMessage,
-                  style: TextStyle(color: Colors.red, fontSize: 14),
+                  style: const TextStyle(color: Colors.red, fontSize: 14),
                 ),
               const SizedBox(height: 20),
               ElevatedButton(
@@ -355,7 +355,8 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PasswordCongratulationPage(),
+                        builder: (context) =>
+                            const PasswordCongratulationPage(),
                       ),
                     );
                   }
@@ -383,5 +384,3 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
     );
   }
 }
-
-

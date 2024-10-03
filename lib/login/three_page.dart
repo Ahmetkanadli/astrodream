@@ -17,8 +17,10 @@ class OnBoardingPage extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const LoginPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
                   },
                   child: Text(
                     'Atla',
@@ -88,7 +90,8 @@ class OnBoardingPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SecondOnBoardingPage()));
+                            builder: (context) =>
+                                const SecondOnBoardingPage()));
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
@@ -110,8 +113,10 @@ class OnBoardingPage extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const LoginPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()));
                 },
                 child: Text(
                   "Kayıt ol",
@@ -145,7 +150,10 @@ class SecondOnBoardingPage extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: TextButton(
                   onPressed: () {
-                    //kayıt ol sayfasına yönlendir
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
                   },
                   child: Text(
                     'Atla',
@@ -237,8 +245,10 @@ class SecondOnBoardingPage extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const LoginPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()));
                 },
                 child: Text(
                   "Kayıt ol",
@@ -272,7 +282,10 @@ class ThirdOnBoardingPage extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: TextButton(
                   onPressed: () {
-                    //kayıt ol sayfasına yönlendir
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
                   },
                   child: Text(
                     'Atla',
@@ -339,8 +352,10 @@ class ThirdOnBoardingPage extends StatelessWidget {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const LoginPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(

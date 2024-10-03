@@ -12,6 +12,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   String password = '';
   bool hasEightCharacters = false;
   bool hasNumber = false;
@@ -92,7 +93,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const SizedBox(height: 12),
                 TextField(
-                  controller: _emailController,
+                  controller: _nameController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
@@ -201,7 +202,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 ElevatedButton(
                   onPressed: hasEightCharacters && hasNumber && hasLetter
                       ? () {
-                          // Kayıt işlemi
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const CongratulationPage(),
+                              ));
                         }
                       : null,
                   style: ElevatedButton.styleFrom(
@@ -319,7 +325,8 @@ class PasswordRequirementItem extends StatelessWidget {
       children: [
         Icon(
           isValid ? Icons.check : Icons.close,
-          color: isValid ? const Color.fromARGB(255, 162, 140, 224) : Colors.red,
+          color:
+              isValid ? const Color.fromARGB(255, 162, 140, 224) : Colors.red,
           size: 18,
         ),
         const SizedBox(width: 12),
@@ -342,50 +349,64 @@ class CongratulationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/star.png',
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/images/star.png',
+            ),
+            const SizedBox(height: 15),
+            Text(
+              "Tebrikler!",
+              style: GoogleFonts.openSans(
+                fontWeight: FontWeight.w700,
+                fontSize: 24,
+                color: const Color(0xFF121212),
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              "Hesabınız hazır. Rüyalarınızı anlamlandırma zamanı.",
+              style: GoogleFonts.roboto(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: const Color(0xFFA6A6A6),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPage(),
+                    ));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 84, 64, 140),
+                minimumSize: const Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(48),
                 ),
-                const SizedBox(height: 15),
-                Text("Tebrikler!",
-                    style: GoogleFonts.openSans(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 24,
-                      color: const Color(0x00121212),
-                    )),
-                const SizedBox(height: 5),
-                Text("Hesabınız hazır. Rüyalarınızı anlamlandırma zamanı.",
-                    style: GoogleFonts.roboto(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0x00a6a6a6),
-                    )),
-                const SizedBox(
-                  height: 15,
+              ),
+              child: Text(
+                "Başlayın",
+                style: GoogleFonts.openSans(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: const Color.fromARGB(255, 255, 255, 255),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    //anasayfaya yönlendir.
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 84, 64, 140),
-                    minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(48),
-                    ),
-                  ),
-                  child: Text("Başlayın",
-                      style: GoogleFonts.openSans(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: (const Color.fromARGB(255, 255, 255, 255)))),
-                ),
-              ],
-            )));
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
